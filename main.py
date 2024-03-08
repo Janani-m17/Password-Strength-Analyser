@@ -4,16 +4,16 @@ import string
 
 
 def analyze_password(password):
-    length_criteria = len(password) >= 8
-    upper_criteria = any(char.isupper() for char in password)
-    lower_criteria = any(char.islower() for char in password)
-    digit_criteria = any(char.isdigit() for char in password)
-    special_criteria = any(char in string.punctuation for char in password)
+    length = len(password) >= 8
+    upper = any(char.isupper() for char in password)
+    lower = any(char.islower() for char in password)
+    digit = any(char.isdigit() for char in password)
+    special = any(char in string.punctuation for char in password)
 
     strength = "Weak"
-    if length_criteria and upper_criteria and lower_criteria and digit_criteria and special_criteria:
+    if length and upper and lower and digit and special:
         strength = "Strong"
-    elif length_criteria and upper_criteria and lower_criteria and digit_criteria:
+    elif length and upper and lower and digit:
         strength = "Moderate"
 
     return strength
